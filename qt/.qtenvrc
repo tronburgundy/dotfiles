@@ -1,0 +1,81 @@
+[General]
+anim_methodcalls=true
+animation_enabled=true
+animation_msgclassnames=true
+animation_msgcolors=true
+animation_msgnames=true
+arrangevectorconnections=false
+bubbles=true
+display-statusdetails=true
+display-timeline=true
+event_banners=true
+eventnumlabel-digitgrouping=2
+expressmode_autoupdate=true
+init_banners=true
+layouterchoice=auto
+logbuffer_maxnumevents=100000
+logformat="%l %C: "
+loglevel=TRACE
+mainwin-bottom-splittersizes=635, 1905
+mainwin-left-splittersizes=441, 440
+mainwin-main-splittersizes=31, 885
+mainwin-right-splitter-orientation=vert
+mainwin-right-splittersizes-vert=789, 92
+mainwindow-geom=@Rect(2 24 2556 1029)
+methodcalls_duration=1500
+nexteventmarkers=true
+penguin_mode=false
+scrollbacklimit=10000
+senddirect_arrows=true
+short_banners=false
+showlayouting=false
+silent_event_filters=\n
+simtimelabel-digitgrouping=2
+simtimelabel-units=true
+stopdialog-geom=@Rect(2323 217 210 151)
+stripnamespace=all
+updatefreq_express_ms=1000
+
+[Fonts]
+bold=DejaVu Sans, 9
+canvas=DejaVu Sans, 9
+log=DejaVu Sans Mono, 9
+time=DejaVu Sans, 12
+timeline=DejaVu Sans Condensed, 9
+
+[InspectorPreferences]
+type1-embedded-Aloha-mode=2
+type1-embedded-ClientServer-mode=2
+type1-embedded-NULL-mode=0
+type1-embedded-Tictoc1-mode=2
+type2-embedded-Aloha-mode=0
+type2-embedded-Aloha-showarrowheads=true
+type2-embedded-Aloha-showlabels=true
+type2-embedded-ClientServer-mode=0
+type2-embedded-ClientServer-showarrowheads=true
+type2-embedded-ClientServer-showlabels=true
+type2-embedded-Tictoc1-center=@Point(210 257)
+type2-embedded-Tictoc1-mode=0
+type2-embedded-Tictoc1-showarrowheads=true
+type2-embedded-Tictoc1-showlabels=true
+type3-embedded-Aloha-mode=0
+type3-embedded-ClientServer-mode=0
+type3-embedded-NULL-mode=0
+type3-embedded-Tictoc1-mode=0
+
+[LayoutSeeds]
+Aloha=1
+ClientServer=1
+Tictoc1=1
+
+[Controls]
+Style=Material
+
+[Universal]
+Theme=System
+Accent=Red
+
+[Material]
+Theme=Light
+Accent=Teal
+Primary=BlueGrey

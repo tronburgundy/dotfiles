@@ -1,0 +1,1 @@
+setenv('MATLAB_LOG_DIR', '/home/phil/.matlab/log')

@@ -1,0 +1,10 @@
+#include "/usr/share/themes/Breeze/gtk-2.0/gtkrc"
+#style "user-font" 
+#{
+#	font_name="Noto Sans Regular"
+#}
+#widget_class "*" style "user-font"
+gtk-font-name="Noto Sans Regular 10"
+gtk-theme-name="Breeze"
+#gtk-icon-theme-name="breeze"
+#gtk-cursor-theme-name="Breeze_Snow"

@@ -1,0 +1,159 @@
+## Font
+font pango:dejaVu Sans Mono, Icons 12
+
+## Colors
+set $background #201609
+set $foreground #CE957E
+set $gray       #C0813B
+set $primary    #E07346
+set $secondary  #E09C61
+set $tertiary   #E06D46
+set $warning    #E06D5D
+
+# COLOR                 BORDER      BACKGROUND TEXT        INDICATOR
+client.focused          $primary    $primary   $background $primary
+client.focused_inactive $background $primary   $foreground $background
+client.unfocused        $gray       $gray      $background $secondary
+client.urgent           $warning    $warning   $foreground $warning
+
+## Startup programs
+exec_always --no-startup-id "betterlockscreen -u ~/Pictures/wallpaper -r 2560x1080"
+exec_always --no-startup-id "xrandr --output eDP1 --auto --output HDMI1 --primary --auto --left-of eDP1"
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
+exec_always --no-startup-id "redshift -l 41.640535:-70.95393"
+exec_always --no-startup-id "compton -b"
+exec_always --no-startup-id "feh --bg-fill /home/phil/Pictures/wallpaper/torrid.png"
+exec_always --no-startup-id "xset 0 0"
+exec_always --no-startup-id "xset -dpms"
+
+## Launcher Keybindings
+bindsym $mod+t exec "thunderbird"
+bindsym $mod+m exec "matlab -desktop"
+bindsym $mod+b exec "firefox"
+bindsym $mod+Shift+n exec "termite -d `xcwd`"
+bindsym $mod+p exec "scrot -s -e 'mv $f ~/Pictures/scrot/'"
+bindsym $mod+Shift+z exec "/home/phil/.i3/suspendtimer.sh"
+bindsym $mod+d exec "dmenu_run -i -m 2"
+# bindsym $mod+d exec rofi -show run -lines 12 -columns 3 -width 30 -color-normal "$background,$foreground,$secondary,#586e75,#eee8d5"
+bindsym $mod+Return exec "i3-sensible-terminal"
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+r mode resize
+bindsym $mod+x mode display_mode
+
+# Disable title bars
+new_window 1pixel
+
+## Gaps
+gaps inner 10
+gaps outer 10
+
+# Floating Windows
+for_window [class="matplotlib" instance="matplotlib"] floating enable
+for_window [class="MATLAB R2017b - academic use" title="^Fig"] floating enable
+## Modes
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Manual management of external displays
+set $display_mode Ext Screen (v) VGA ON, (x) VGA OFF, (h) HDMI ON, (y) HDMI OFF, (p) PRIMARY ON, (z) PRIMARY OFF
+mode "$display_mode" {
+    bindsym v exec "xrandr --output DP2 --auto --right-of eDP1"
+    bindsym x exec "xrandr --output DP2 --off"
+    bindsym h exec "xrandr --output HDMI1 --auto --left-of eDP1 && xbacklight -set 100"
+    bindsym y exec "xrandr --output HDMI1 --off && xbacklight -set 30"
+    bindsym p exec "xrandr --output eDP1 --auto"
+    bindsym z exec "xrandr --output eDP1 --off"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+## Keybindings
+# Mod Key
+# Alt is Mod1; Win is Mod4
+set $mod Mod1
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
