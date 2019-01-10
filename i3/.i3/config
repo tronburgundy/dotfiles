@@ -17,33 +17,35 @@ client.unfocused        $gray       $gray      $background $secondary
 client.urgent           $warning    $warning   $foreground $warning
 
 ## Startup programs
-exec_always --no-startup-id "betterlockscreen -u ~/Pictures/wallpaper -r 2560x1080"
-exec_always --no-startup-id "xrandr --output eDP1 --auto --output HDMI1 --primary --auto --left-of eDP1"
-exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
-exec_always --no-startup-id "redshift -l 41.640535:-70.95393"
-exec_always --no-startup-id "compton -b"
-exec_always --no-startup-id "feh --bg-fill /home/phil/Pictures/wallpaper/torrid.png"
+exec_always --no-startup-id "$HOME/.i3/displays.sh"
 exec_always --no-startup-id "xset 0 0"
 exec_always --no-startup-id "xset -dpms"
+exec_always --no-startup-id "compton -b"
+exec_always --no-startup-id "redshift -l 41.640535:-70.95393"
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
+exec_always --no-startup-id "feh --bg-fill $HOME/Pictures/wallpaper/protection.png"
+exec_always --no-startup-id "betterlockscreen -u ~/Pictures/wallpaper -r 2560x1080"
 
 ## Launcher Keybindings
-bindsym $mod+t exec "thunderbird"
-bindsym $mod+m exec "matlab -desktop"
-bindsym $mod+b exec "firefox"
-bindsym $mod+Shift+n exec "termite -d `xcwd`"
-bindsym $mod+p exec "scrot -s -e 'mv $f ~/Pictures/scrot/'"
-bindsym $mod+Shift+z exec "/home/phil/.i3/suspendtimer.sh"
-bindsym $mod+d exec "dmenu_run -i -m 2"
-# bindsym $mod+d exec rofi -show run -lines 12 -columns 3 -width 30 -color-normal "$background,$foreground,$secondary,#586e75,#eee8d5"
-bindsym $mod+Return exec "i3-sensible-terminal"
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+r mode resize
-bindsym $mod+x mode display_mode
+
+bindsym $mod+Return exec "termite"
+bindsym $mod+Shift+Return exec "termite -d `xcwd`"
+bindsym $mod+Shift+x exec "xrandr --output eDP1 --auto --right-of HDMI1"
+bindsym $mod+Shift+z exec "systemctl suspend"
+bindsym Print exec "scrot -u -e 'mv $f ~/Pictures/'"
+
+bindsym $mod+t exec "thunderbird"
+bindsym $mod+m exec "export MATLAB_LOG_DIR=.matlab/log && matlab -desktop"
+bindsym $mod+b exec "firefox"
+bindsym $mod+d exec "rofi -show run"
+# bindsym $mod+d exec rofi -show run -lines 12 -columns 3 -width 30 -color-normal "$background,$foreground,$secondary,#586e75,#eee8d5"
 
 # Disable title bars
-new_window 1pixel
+hide_edge_borders vertical
 
 ## Gaps
 gaps inner 10

@@ -7,7 +7,7 @@ CASE_SENSITIVE="true"
 
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git vi-mode sudo history-substring-search)
+plugins=(git vi-mode sudo history-substring-search web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -29,3 +29,5 @@ setopt COMPLETE_ALIASES
 
 alias fstart=/home/phil/misc/fstart
 alias guitar-pro=/opt/GuitarPro6/GuitarPro
+alias topmem="top -o %MEM"
+export PATH=/home/phil/.conda/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl

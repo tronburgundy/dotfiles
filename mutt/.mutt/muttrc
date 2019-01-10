@@ -1,6 +1,6 @@
 set folder              = imaps://phil.lowney@imap.gmail.com/
 set imap_user           = phil.lowney@gmail.com
-set imap_pass           = gibsonSG715
+set imap_pass           = vmsmgeltsavumtqc
 set spoolfile           = +INBOX
 set imap_check_subscribed
 

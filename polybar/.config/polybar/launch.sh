@@ -12,6 +12,12 @@ if [ $? == 0 ]; then
     polybar wide & 
 fi
 
+# Check if VGA is connected
+xrandr | grep "DP2 connected" &> /dev/null
+if [ $? == 0 ]; then 
+    polybar square & 
+fi
+
 # Launch builtin bar
 polybar builtin &
 

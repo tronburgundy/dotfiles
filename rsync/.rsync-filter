@@ -1,8 +1,10 @@
+- /flatlager/videos
 - /repos
 - /Ableton
 - /.wine
 - /games/Steam
 - .git/
+- /.conda/
 - /.config/autostart
 - /.config/Doxygen.org
 - /.config/gtk-2.0
@@ -99,3 +101,7 @@
 - /.python_history
 - .compose-cache
 - /audio/Beta
+- /.config/ardour5/drumkits/
+- /vbox_vms/
+- *.MP4
+- /.thunderbird/
